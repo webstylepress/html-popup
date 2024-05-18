@@ -1,0 +1,45 @@
+body {
+	font-size: 1.5rem;
+}
+
+[popover] {
+	background: #000;
+	color: #fff;
+	font-weight: 400;
+	padding: 50px 40px 40px 40px;
+	border-radius: 6px;
+	border: 0;
+	max-width: 80%;
+	line-height: 1.4;
+	top: 8rem;
+	margin: 0 auto;
+}
+
+[popover]::backdrop {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.btn-close {
+	position: absolute;
+	right: 6px;
+	top: 10px;
+	line-height: 1;
+}
+
+/* Animating the popover in */
+/* IS-OPEN STATE */
+[popover]:popover-open {
+	translate: 0 0;
+}
+/* EXIT STATE */
+[popover] {
+	transition: translate 0.7s ease-out, overlay 0.7s ease-out,
+		display 0.7s ease-out allow-discrete;
+	translate: 0 -30rem;
+}
+/* BEFORE-OPEN STATE */
+@starting-style {
+	[popover]:popover-open {
+		translate: 0 -30rem;
+	}
+}
